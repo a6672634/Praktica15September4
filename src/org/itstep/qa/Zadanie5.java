@@ -5,8 +5,7 @@ public class Zadanie5 {
     public static void main(String[] args) {
         // Задача 5
         // Найти максимальный и минимальный элементы ТРЕХ-мерного массива (заполнен случайными числами)
-        int array[][][] = new int[3][3][3];
-
+        int array[] = new int[10];
         Scanner scanner = new Scanner(System.in);
         int counter = 0;
         int zeros = 0;
