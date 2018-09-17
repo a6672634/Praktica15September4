@@ -1,27 +1,35 @@
 package org.itstep.qa;
-import java.util.Scanner;
 
+import java.util.Random;
 public class Zadanie5 {
     public static void main(String[] args) {
         // Задача 5
         // Найти максимальный и минимальный элементы ТРЕХ-мерного массива (заполнен случайными числами)
-        int array[] = new int[10];
-        Scanner scanner = new Scanner(System.in);
-        int counter = 0;
-        int zeros = 0;
-        System.out.println("Enter number");
-        do{
-            if(scanner.hasNextInt()){
-                array[counter++] = scanner.nextInt();
-                if(array[counter - 1] == 0)
-                    zeros++;
+
+        Random random = new Random();
+        int[][][] array = new int[3][5][6];
+        for(int i = 0; i < array.length; i++){
+            for(int j = 0; j < array[i].length; j++){
+                for(int k = 0; k < array[i][j].length; k++){
+                    array[i][j][k] = random.nextInt(101);
+                }
             }
-            else{
-                System.out.println("Please try again:");
-                scanner.next();
+        }
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int i = 0; i < array.length; i++){
+            for(int j = 0; j < array[i].length; j++){
+                for(int k = 0; k < array[i][j].length; k++){
+                    System.out.print(array[i][j][k] + " ");
+                    if(min > array[i][j][k])
+                        min = array[i][j][k];
+                    if(max < array[i][j][k])
+                        max = array[i][j][k];
+                }
+                System.out.println();
             }
-        }while(counter < array.length);
-        System.out.println("Count of zeros = " + zeros);
+            System.out.println();
+        }
+        System.out.println("Min = " + min + "\nMax = " + max);
     }
 }
-
